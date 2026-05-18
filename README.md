@@ -96,15 +96,6 @@ The plugin stores settings on product collection metadata:
 - `starts_with`
 - `ends_with`
 
-## Migration
-
-If you previously used an older in-project implementation, run the included migration script after installing the plugin:
-
-```bash
-pnpm medusa exec ./node_modules/medusa-plugin-smart-collections/.medusa/server/src/scripts/migrate-smart-collection-conditions.js dry-run
-pnpm medusa exec ./node_modules/medusa-plugin-smart-collections/.medusa/server/src/scripts/migrate-smart-collection-conditions.js
-```
-
 ## Notes
 
 - This package currently targets Medusa `^2.14`.
