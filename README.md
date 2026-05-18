@@ -1,4 +1,4 @@
-# Medusa Smart Collections
+# Medusa Smart Collection
 
 Metadata-based smart product collections for Medusa v2.
 
@@ -18,7 +18,7 @@ This plugin adds a Smart Collection builder to product collection detail pages i
 Install the package:
 
 ```bash
-pnpm add medusa-plugin-smart-collections
+pnpm add medusa-plugin-smart-collection
 ```
 
 Register it in `medusa-config.ts`:
@@ -30,7 +30,7 @@ export default defineConfig({
 	// ...
 	plugins: [
 		{
-			resolve: "medusa-plugin-smart-collections",
+			resolve: "medusa-plugin-smart-collection",
 			options: {},
 		},
 	],
@@ -52,7 +52,7 @@ pnpm medusa plugin:publish
 In your Medusa app:
 
 ```bash
-pnpm medusa plugin:add medusa-plugin-smart-collections
+pnpm medusa plugin:add medusa-plugin-smart-collection
 ```
 
 Then run the plugin watcher:

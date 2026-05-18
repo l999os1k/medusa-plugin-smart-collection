@@ -1,5 +1,5 @@
 {
-	"name": "medusa-plugin-smart-collections",
+	"name": "medusa-plugin-smart-collection",
 	"version": "0.1.0",
 	"description": "Metadata-based smart product collections for Medusa v2.",
 	"author": "",
