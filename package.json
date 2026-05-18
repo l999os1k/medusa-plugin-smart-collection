@@ -1,0 +1,113 @@
+{
+	"name": "medusa-plugin-smart-collections",
+	"version": "0.1.0",
+	"description": "Metadata-based smart product collections for Medusa v2.",
+	"author": "",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/l999os1k/medusa-plugin-smart-collections.git"
+	},
+	"files": [
+		".medusa/server",
+		"README.md",
+		"LICENSE"
+	],
+	"exports": {
+		"./package.json": "./package.json",
+		"./workflows": {
+			"import": "./.medusa/server/src/workflows/index.js",
+			"types": "./.medusa/server/src/workflows/index.d.ts",
+			"require": "./.medusa/server/src/workflows/index.js"
+		},
+		"./admin": {
+			"import": "./.medusa/server/src/admin/index.mjs",
+			"require": "./.medusa/server/src/admin/index.js",
+			"default": "./.medusa/server/src/admin/index.js"
+		},
+		"./.medusa/server/src/modules/*": "./.medusa/server/src/modules/*/index.js",
+		"./*": "./.medusa/server/src/*.js"
+	},
+	"keywords": [
+		"medusa",
+		"medusa-v2",
+		"medusa-plugin",
+		"smart-collections",
+		"product-collections",
+		"ecommerce",
+		"typescript"
+	],
+	"scripts": {
+		"build": "medusa plugin:build",
+		"dev": "medusa plugin:develop",
+		"typecheck": "tsc --noEmit",
+		"test": "jest"
+	},
+	"devDependencies": {
+		"@medusajs/admin-sdk": "2.14.2",
+		"@medusajs/cli": "2.14.2",
+		"@medusajs/framework": "2.14.2",
+		"@medusajs/icons": "2.14.2",
+		"@medusajs/js-sdk": "2.14.2",
+		"@medusajs/medusa": "2.14.2",
+		"@medusajs/test-utils": "2.14.2",
+		"@medusajs/types": "2.14.2",
+		"@medusajs/ui": "4.1.8",
+		"@swc/core": "^1.7.28",
+		"@swc/jest": "^0.2.36",
+		"@tanstack/react-query": "5.64.2",
+		"@types/jest": "^29.5.13",
+		"@types/node": "^20.12.11",
+		"@types/react": "^19.2.14",
+		"@types/react-dom": "^19.2.3",
+		"jest": "^29.7.0",
+		"react": "^19.2.5",
+		"react-dom": "^19.2.5",
+		"typescript": "^5.7.3"
+	},
+	"peerDependencies": {
+		"@medusajs/admin-sdk": "^2.14.0",
+		"@medusajs/cli": "^2.14.0",
+		"@medusajs/framework": "^2.14.0",
+		"@medusajs/icons": "^2.14.0",
+		"@medusajs/js-sdk": "^2.14.0",
+		"@medusajs/medusa": "^2.14.0",
+		"@medusajs/types": "^2.14.0",
+		"@medusajs/ui": "^4.1.0",
+		"@tanstack/react-query": "^5.64.0",
+		"react": "^18.3.1 || ^19.0.0",
+		"react-dom": "^18.3.1 || ^19.0.0"
+	},
+	"peerDependenciesMeta": {
+		"@medusajs/admin-sdk": {
+			"optional": true
+		},
+		"@medusajs/cli": {
+			"optional": true
+		},
+		"@medusajs/icons": {
+			"optional": true
+		},
+		"@medusajs/js-sdk": {
+			"optional": true
+		},
+		"@medusajs/types": {
+			"optional": true
+		},
+		"@medusajs/ui": {
+			"optional": true
+		},
+		"@tanstack/react-query": {
+			"optional": true
+		},
+		"react": {
+			"optional": true
+		},
+		"react-dom": {
+			"optional": true
+		}
+	},
+	"engines": {
+		"node": ">=22"
+	}
+}
