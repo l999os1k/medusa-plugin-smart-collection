@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+ssh://git@github.com/l999os1k/medusa-plugin-smart-collections.git"
+		"url": "git+ssh://git@github.com/l999os1k/medusa-plugin-smart-collection.git"
 	},
 	"files": [
 		".medusa/server",
