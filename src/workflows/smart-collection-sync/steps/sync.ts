@@ -109,8 +109,10 @@ export const syncProductStep = createStep(
 			`[smart-collection-sync] starting match loop: products=${products.length}, collections=${collectionRules.length}`,
 		);
 
-		// For collection update, we need to handle all collections that were evaluated
-		// including those with no matching products (to remove all products)
+		// Full collection syncs replace evaluated membership.
+		// Product event syncs are partial and must only remove evaluated products.
+		const isPartialProductSync = Boolean(input.product_id);
+		const evaluatedProductIdsSet = new Set(products.map((product) => product.id).filter(Boolean));
 		const allEvaluatedCollectionIds = collectionRules.map((rule) => rule.collectionId);
 
 		for (const collectionId of allEvaluatedCollectionIds) {
@@ -130,7 +132,9 @@ export const syncProductStep = createStep(
 				const currentProductIdsSet = new Set(currentProductIds);
 				const nextProductIdsSet = new Set(productIds);
 				const addProductIds = productIds.filter((id) => !currentProductIdsSet.has(id));
-				const removeProductIds = currentProductIds.filter((id) => !nextProductIdsSet.has(id));
+				const removeProductIds = isPartialProductSync
+					? currentProductIds.filter((id) => evaluatedProductIdsSet.has(id) && !nextProductIdsSet.has(id))
+					: currentProductIds.filter((id) => !nextProductIdsSet.has(id));
 
 				if (!addProductIds.length && !removeProductIds.length) {
 					processedCollections.push({
